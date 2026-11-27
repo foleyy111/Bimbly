@@ -1,0 +1,50 @@
+/*
+  Bimbly — stylesheet tambahan
+  Layout dan utility utama menggunakan Tailwind CSS CDN yang dipanggil di index.html.
+  File ini menampung font, animasi, dan aturan dasar agar mudah dikembangkan.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+:root {
+  --bimbly-indigo: #4f46e5;
+  --bimbly-blue: #2563eb;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+@keyframes bimbly-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: bimbly-float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: bimbly-float 4s ease-in-out 2s infinite;
+}
+
+/* Menghormati pengaturan reduced motion pengunjung. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

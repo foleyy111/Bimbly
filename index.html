@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bimbly — Pahami Materi Kuliah Sulit Bareng Tutor Senior</title>
+    <!-- Tailwind CSS CDN (memerlukan koneksi internet) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Konfigurasi Tailwind Kustom -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 4s ease-in-out infinite',
+                        'float-delayed': 'float 4s ease-in-out 2s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-600 selection:text-white">
+
+    <!-- 1. NAVBAR SEDERHANA -->
+    <header class="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-slate-200/70 transition-all">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+            <!-- Logo Bimbly -->
+            <a href="#" class="flex items-center gap-2.5 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+                    <!-- Icon Topi Wisuda / Buku -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-heading font-extrabold text-xl sm:text-2xl tracking-tight bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">Bimbly</span>
+                    <span class="hidden sm:inline-block text-[11px] font-medium text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full ml-1 align-middle">For Mahasiswa</span>
+                </div>
+            </a>
+
+            <!-- Navigasi Desktop -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="#masalah-solusi" class="hover:text-indigo-600 transition-colors">Kenapa Bimbly?</a>
+                <a href="#fitur" class="hover:text-indigo-600 transition-colors">Keunggulan</a>
+                <a href="#cara-kerja" class="hover:text-indigo-600 transition-colors">Cara Belajar</a>
+                <a href="#kontak" class="hover:text-indigo-600 transition-colors">Kontak</a>
+            </nav>
+
+            <!-- Tombol CTA Navbar -->
+            <div class="flex items-center gap-3">
+                <a href="#booking" class="inline-flex items-center justify-center px-4 py-2.5 sm:px-5 sm:py-2.5 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl shadow-sm shadow-indigo-600/25 transition-all hover:-translate-y-0.5 active:translate-y-0">
+                    Booking Sesi
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION (UVP UTAMA & VISUAL INTERAKTIF) -->
+    <section class="relative overflow-hidden pt-10 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28 bg-gradient-to-b from-indigo-50/70 via-white to-slate-50">
+        <!-- Dekorasi Latar Belakang -->
+        <div class="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-96 h-96 bg-blue-200/40 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-96 h-96 bg-indigo-200/40 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Kolom Kiri: Copywriting UVP -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-100/80 border border-indigo-200 text-indigo-700 text-xs sm:text-sm font-semibold mb-6">
+                        <span class="flex h-2 w-2 rounded-full bg-indigo-600 animate-ping"></span>
+                        Platform Bimbel Online #1 Khusus Mahasiswa
+                    </div>
+
+                    <h1 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[44px] text-slate-900 leading-[1.18] tracking-tight mb-5">
+                        Pahami Materi Kuliah Sulit Bareng <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Tutor Senior</span>—Sesuai Jadwal & Ramah di Kantong!
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+                        Bimbingan belajar online 1-on-1 untuk mahasiswa aktif. Kejar materi kuliah yang tertinggal, pahami konsep sulit tanpa canggung bertanya, dan tingkatkan nilai tugas maupun ujianmu.
+                    </p>
+
+                    <!-- Tombol CTA Utama -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 mb-8">
+                        <a href="#booking" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 text-base font-bold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-2xl shadow-lg shadow-indigo-600/30 transition-all hover:-translate-y-0.5">
+                            <span>Jadwalkan Sesi Pertamamu</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </a>
+                        <a href="#cara-kerja" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 rounded-2xl shadow-sm transition-all">
+                            <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Lihat Cara Kerja</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Badges Singkat -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-slate-500">
+                        <div class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            <span>Mulai Rp25.000/sesi</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            <span>Tutor Senior IPK > 3.60</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            <span>100% Online & Fleksibel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Ilustrasi Visual / UI Card Sesi Belajar -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md">
+                        <!-- Kartu Utama Simulasi Video Call Belajar -->
+                        <div class="bg-white rounded-3xl p-5 sm:p-6 shadow-2xl shadow-indigo-950/10 border border-slate-100">
+                            <!-- Header Window -->
+                            <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-rose-400"></span>
+                                    <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+                                    <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+                                </div>
+                                <span class="text-xs font-semibold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg">Live Sesi 1-on-1 • Statistika</span>
+                            </div>
+
+                            <!-- Visual Tutor & Mahasiswa -->
+                            <div class="grid grid-cols-2 gap-3 mb-4">
+                                <!-- Kartu Tutor -->
+                                <div class="bg-gradient-to-br from-indigo-600 to-blue-700 rounded-2xl p-4 text-white relative overflow-hidden">
+                                    <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3 text-xl font-bold">
+                                        👨‍🏫
+                                    </div>
+                                    <p class="font-heading font-bold text-sm">Kak Lutfi (Sem. 5)</p>
+                                    <p class="text-[11px] text-indigo-100">Tutor • Nilai Matkul: A</p>
+                                    <span class="inline-block mt-2 text-[10px] bg-emerald-400/20 text-emerald-200 border border-emerald-300/30 px-2 py-0.5 rounded-full">Sedang Menjelaskan</span>
+                                </div>
+
+                                <!-- Kartu Mahasiswa -->
+                                <div class="bg-slate-100 rounded-2xl p-4 text-slate-800 relative">
+                                    <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mb-3 text-xl">
+                                        👩‍🎓
+                                    </div>
+                                    <p class="font-heading font-bold text-sm">Kamu (Sem. 3)</p>
+                                    <p class="text-[11px] text-slate-500">Bebas Tanya Tanpa Malu</p>
+                                    <span class="inline-block mt-2 text-[10px] bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full">Paham Konsep! ✨</span>
+                                </div>
+                            </div>
+
+                            <!-- Simulasi Chat Santai -->
+                            <div class="space-y-2.5 bg-slate-50 p-3.5 rounded-2xl border border-slate-100">
+                                <div class="flex items-start gap-2">
+                                    <span class="text-xs font-bold text-slate-700 bg-white px-2.5 py-1.5 rounded-xl rounded-tl-none shadow-sm border border-slate-100">
+                                        "Kak, bagian rumus regresi ini tadi di kelas dosen kecepetan jelasinnya 😅"
+                                    </span>
+                                </div>
+                                <div class="flex items-start justify-end gap-2">
+                                    <span class="text-xs font-medium text-white bg-indigo-600 px-3 py-1.5 rounded-xl rounded-tr-none shadow-sm">
+                                        "Santai! Ini trik cepat ngerjainnya biar kamu paham logikanya..."
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badge Kiri Bawah -->
+                        <div class="hidden sm:flex items-center gap-3 bg-white p-3.5 rounded-2xl shadow-xl border border-slate-100 absolute -bottom-5 -left-6 animate-float">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-lg">
+                                📈
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-medium">Target Akademik</p>
+                                <p class="text-sm font-heading font-bold text-slate-800">Nilai UTS/UAS Naik!</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badge Kanan Atas -->
+                        <div class="hidden sm:flex items-center gap-2.5 bg-white px-4 py-2.5 rounded-2xl shadow-xl border border-slate-100 absolute -top-4 -right-4 animate-float-delayed">
+                            <span class="text-lg">💸</span>
+                            <div>
+                                <p class="text-xs font-heading font-bold text-slate-800">Ramah Kantong</p>
+                                <p class="text-[11px] text-slate-500">Sesuai Budget Mahasiswa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. BAGIAN MASALAH & SOLUSI VISUAL -->
+    <section id="masalah-solusi" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Relate Banget Kan?</span>
+                <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-slate-900 mt-3 mb-4">
+                    Dari Bingung Sendirian Jadi Paham Bareng Senior
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Kami tahu susahnya kuliah saat interaksi terbatas dan materi terus menumpuk. Bimbly hadir menjembatani masalah kuliahmu.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Kartu Masalah (Sebelum Bimbly) -->
+                <div class="bg-rose-50/60 border border-rose-100 rounded-3xl p-6 sm:p-8 relative overflow-hidden">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 text-rose-700 text-xs font-bold mb-6">
+                        <span>😫</span> Masalah Kuliah Sehari-hari
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-slate-900 mb-5">Belajar Sendiri Tanpa Bimbingan</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-rose-200/80 text-rose-700 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✕</span>
+                            <p class="text-sm sm:text-base text-slate-700"><strong>Sulit paham materi jarak jauh:</strong> Penjelasan dosen terlalu cepat atau teoritis sehingga susah dicerna.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-rose-200/80 text-rose-700 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✕</span>
+                            <p class="text-sm sm:text-base text-slate-700"><strong>Canggung & malu bertanya:</strong> Ragu bertanya langsung di kelas karena takut dianggap kurang paham atau waktu kelas habis.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-rose-200/80 text-rose-700 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✕</span>
+                            <p class="text-sm sm:text-base text-slate-700"><strong>Materi menumpuk & stres:</strong> Ketertinggalan bab awal bikin tugas makin berat dan nilai ujian terancam turun.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kartu Solusi (Bersama Bimbly) -->
+                <div class="bg-gradient-to-br from-indigo-600 to-blue-700 text-white rounded-3xl p-6 sm:p-8 shadow-xl shadow-indigo-600/15 relative overflow-hidden">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-white text-xs font-bold mb-6">
+                        <span>🚀</span> Solusi Belajar di Bimbly
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-5">Bimbingan 1-on-1 Bareng Senior</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-emerald-400 text-slate-900 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</span>
+                            <p class="text-sm sm:text-base text-indigo-50"><strong>Bahasa sesama mahasiswa:</strong> Konsep rumit dijelaskan dengan cara yang santai, praktis, dan gampang dimengerti.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-emerald-400 text-slate-900 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</span>
+                            <p class="text-sm sm:text-base text-indigo-50"><strong>Bebas tanya sampai ngerti:</strong> Ruang aman 1-on-1 untuk menanyakan bagian paling dasar sekalipun tanpa rasa sungkan.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-emerald-400 text-slate-900 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</span>
+                            <p class="text-sm sm:text-base text-indigo-50"><strong>Kejar ketertinggalan & siap ujian:</strong> Materi kembali terkendali, tugas selesai tepat waktu, dan nilai akademik meningkat.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FITUR & MANFAAT UTAMA (4 KARTU VISUAL) -->
+    <section id="fitur" class="py-16 sm:py-24 bg-slate-50 border-y border-slate-200/60">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-100/70 px-3 py-1 rounded-full">Keunggulan Bimbly</span>
+                <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-slate-900 mt-3 mb-4">
+                    Dirancang Khusus untuk Kebutuhan Mahasiswa
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Belajar efektif tanpa ribet, menyesuaikan ritme kuliah dan kondisi keuanganmu.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Fitur 1 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Tutor Senior Terpilih</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Dibimbing langsung oleh kakak tingkat berprestasi yang sudah lulus mata kuliah terkait dengan nilai memuaskan.
+                    </p>
+                </div>
+
+                <!-- Fitur 2 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Jadwal Fleksibel</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Bebas atur waktu belajar sesuai jam kosong kuliahmu—pagi, malam, bahkan sesi kilat menjelang kuis atau ujian.
+                    </p>
+                </div>
+
+                <!-- Fitur 3 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Harga Ramah Mahasiswa</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Tarif per sesi sangat terjangkau dan bisa bayar per pertemuan tanpa harus terikat paket mahal.
+                    </p>
+                </div>
+
+                <!-- Fitur 4 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Fokus Tugas & Ujian</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Materi sesi disesuaikan 100% dengan kebutuhanmu: bedah silabus kampus, diskusi tugas, hingga latihan soal UTS/UAS.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CARA KERJA (3 LANGKAH MUDAH) -->
+    <section id="cara-kerja" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Simpel & Cepat</span>
+                <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-slate-900 mt-3 mb-4">
+                    Mulai Belajar dalam 3 Langkah Mudah
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Nggak pakai lama, langsung terhubung dengan tutor yang pas untuk mata kuliahmu.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <!-- Garis Penghubung Desktop -->
+                <div class="hidden md:block absolute top-10 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-indigo-200 via-blue-400 to-indigo-200 z-0"></div>
+
+                <!-- Langkah 1 -->
+                <div class="relative z-10 text-center bg-white p-6 rounded-2xl">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-indigo-600 text-white font-heading font-extrabold text-2xl flex items-center justify-center shadow-lg shadow-indigo-600/25 mb-5">
+                        1
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Pilih Mata Kuliah</h3>
+                    <p class="text-sm text-slate-600">
+                        Tulis nama mata kuliah dan topik spesifik yang ingin kamu pelajari atau diskusikan.
+                    </p>
+                </div>
+
+                <!-- Langkah 2 -->
+                <div class="relative z-10 text-center bg-white p-6 rounded-2xl">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-600 text-white font-heading font-extrabold text-2xl flex items-center justify-center shadow-lg shadow-blue-600/25 mb-5">
+                        2
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Cocokkan Tutor & Jadwal</h3>
+                    <p class="text-sm text-slate-600">
+                        Kami hubungkan kamu dengan tutor senior yang sesuai jurusan dan waktu luangmu.
+                    </p>
+                </div>
+
+                <!-- Langkah 3 -->
+                <div class="relative z-10 text-center bg-white p-6 rounded-2xl">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-indigo-600 text-white font-heading font-extrabold text-2xl flex items-center justify-center shadow-lg shadow-indigo-600/25 mb-5">
+                        3
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Belajar Online 1-on-1</h3>
+                    <p class="text-sm text-slate-600">
+                        Mulai sesi via Zoom/Google Meet, tanya sepuasnya sampai kamu benar-benar paham!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. BAGIAN AJAKAN BERTINDAK (CTA & SIMULASI BOOKING) -->
+    <section id="booking" class="py-16 sm:py-24 bg-gradient-to-br from-indigo-900 via-indigo-800 to-blue-900 text-white relative overflow-hidden">
+        <!-- Aksen Latar -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Teks Ajakan -->
+                <div class="lg:col-span-6 text-center lg:text-left">
+                    <span class="inline-block px-3 py-1 rounded-full bg-white/15 text-indigo-100 text-xs font-semibold mb-4">
+                        Jangan Tunggu H-1 Ujian!
+                    </span>
+                    <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl leading-tight mb-4">
+                        Siap Kejar Materi & Naikkan Nilai Kuliahmu?
+                    </h2>
+                    <p class="text-indigo-100 text-sm sm:text-base leading-relaxed mb-6">
+                        Isi formulir singkat di samping untuk konsultasi gratis mata kuliahmu, atau langsung chat admin Bimbly lewat WhatsApp.
+                    </p>
+
+                    <div class="space-y-3 text-sm text-indigo-100 mb-8">
+                        <div class="flex items-center justify-center lg:justify-start gap-2.5">
+                            <span class="text-emerald-400 font-bold">✓</span>
+                            <span>Konsultasi pemilihan tutor 100% gratis</span>
+                        </div>
+                        <div class="flex items-center justify-center lg:justify-start gap-2.5">
+                            <span class="text-emerald-400 font-bold">✓</span>
+                            <span>Bisa belajar individu atau bareng teman sekelas</span>
+                        </div>
+                    </div>
+
+                    <!-- Tombol WhatsApp Langsung -->
+                    <a href="https://wa.me/6281234567890?text=Halo%20Bimbly!%20Saya%20mahasiswa%20dan%20ingin%20tanya%20jadwal%20tutor%20untuk%20mata%20kuliah..." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-950/30 transition-all hover:-translate-y-0.5">
+                        <!-- Icon WhatsApp SVG -->
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+                        </svg>
+                        <span>Chat Admin via WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Form Simulasi Booking Sesi -->
+                <div class="lg:col-span-6">
+                    <div class="bg-white text-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
+                        <h3 class="font-heading font-bold text-xl text-slate-900 mb-1">Booking Sesi Belajar</h3>
+                        <p class="text-xs sm:text-sm text-slate-500 mb-6">Isi data singkat di bawah, tim kami akan mencarikan tutor terbaik untukmu.</p>
+
+                        <form id="bookingForm" class="space-y-4">
+                            <div>
+                                <label for="nama" class="block text-xs font-semibold text-slate-700 mb-1.5">Nama Panggilan</label>
+                                <input type="text" id="nama" required placeholder="Contoh: Raka" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="jurusan" class="block text-xs font-semibold text-slate-700 mb-1.5">Jurusan / Prodi</label>
+                                    <input type="text" id="jurusan" required placeholder="Contoh: Teknik Informatika" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all">
+                                </div>
+                                <div>
+                                    <label for="matkul" class="block text-xs font-semibold text-slate-700 mb-1.5">Mata Kuliah Sulit</label>
+                                    <input type="text" id="matkul" required placeholder="Contoh: Kalkulus / Akuntansi" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="jadwal" class="block text-xs font-semibold text-slate-700 mb-1.5">Preferensi Waktu Belajar</label>
+                                <select id="jadwal" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all">
+                                    <option value="Hari Kerja (Malam 19.00 - 21.00)">Hari Kerja (Malam 19.00 - 21.00)</option>
+                                    <option value="Hari Kerja (Siang/Sore Kosong Kuliah)">Hari Kerja (Siang/Sore Kosong Kuliah)</option>
+                                    <option value="Akhir Pekan (Sabtu / Minggu)">Akhir Pekan (Sabtu / Minggu)</option>
+                                    <option value="Fleksibel / Mendesak Jelang Ujian">Fleksibel / Mendesak Jelang Ujian</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm sm:text-base shadow-md shadow-indigo-600/20 transition-all cursor-pointer">
+                                Cari Tutor Sekarang 🚀
+                            </button>
+                        </form>
+
+                        <!-- Kotak Pesan Konfirmasi (Pengganti alert) -->
+                        <div id="bookingSuccess" class="hidden mt-4 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm">
+                            <div class="flex items-start gap-3">
+                                <span class="text-lg">🎉</span>
+                                <div>
+                                    <p class="font-bold">Permintaan Diterima!</p>
+                                    <p id="bookingMessage" class="text-xs sm:text-sm text-emerald-700 mt-0.5"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FOOTER DENGAN INFORMASI KONTAK LENGKAP -->
+    <footer id="kontak" class="bg-slate-900 text-slate-300 pt-14 pb-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-10 border-b border-slate-800">
+                
+                <!-- Brand & Deskripsi -->
+                <div class="md:col-span-5">
+                    <div class="flex items-center gap-2.5 mb-4">
+                        <div class="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                            </svg>
+                        </div>
+                        <span class="font-heading font-extrabold text-xl text-white">Bimbly</span>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
+                        Teman belajar online khusus mahasiswa. Menghubungkan kamu dengan tutor mahasiswa senior berpengalaman—sesuai mata kuliah, jadwal fleksibel, dan ramah di kantong.
+                    </p>
+                </div>
+
+                <!-- Navigasi Cepat -->
+                <div class="md:col-span-3">
+                    <h4 class="font-heading font-bold text-white text-sm uppercase tracking-wider mb-4">Menu</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li><a href="#masalah-solusi" class="hover:text-white transition-colors">Kenapa Bimbly?</a></li>
+                        <li><a href="#fitur" class="hover:text-white transition-colors">Keunggulan Layanan</a></li>
+                        <li><a href="#cara-kerja" class="hover:text-white transition-colors">Cara Belajar</a></li>
+                        <li><a href="#booking" class="hover:text-white transition-colors">Booking Tutor</a></li>
+                    </ul>
+                </div>
+
+                <!-- Informasi Kontak -->
+                <div class="md:col-span-4">
+                    <h4 class="font-heading font-bold text-white text-sm uppercase tracking-wider mb-4">Hubungi Kami</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-emerald-400 shrink-0">📱</span>
+                            <div>
+                                <p class="text-xs text-slate-500">WhatsApp Admin</p>
+                                <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="text-slate-200 hover:text-indigo-400 font-medium transition-colors">+62 812-3456-7890</a>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-pink-400 shrink-0">📸</span>
+                            <div>
+                                <p class="text-xs text-slate-500">Instagram & TikTok</p>
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-slate-200 hover:text-indigo-400 font-medium transition-colors">@bimbly.id</a>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-blue-400 shrink-0">✉️</span>
+                            <div>
+                                <p class="text-xs text-slate-500">Email</p>
+                                <a href="mailto:halo@bimbly.id" class="text-slate-200 hover:text-indigo-400 font-medium transition-colors">halo@bimbly.id</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 Bimbly Indonesia. Hak Cipta Dilindungi.</p>
+                <p>Dibuat untuk membantu mahasiswa Indonesia lulus dengan percaya diri.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>
